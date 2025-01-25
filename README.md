@@ -5,7 +5,7 @@
 
 Modern landing page for TreeToScript, built with Next.js App Router and TypeScript. Features dynamic content management through YAML and interactive code examples.
 
-![TreeToScript Screenshot](./public/screenshot.png)
+![TreeToScript Screenshot](./app/screenshot.png)
 
 ## Features
 
