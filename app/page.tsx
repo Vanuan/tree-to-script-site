@@ -6,7 +6,7 @@ import { ClientHomePage } from "@/components/landing/ClientHomePage";
 
 // Server Component (no 'use client' directive)
 export default async function HomePage() {
-  const content: YamlContent = await loadYaml("content/home.yaml");
+  const content = await loadYaml<YamlContent>("content/home.yaml");
 
   return (
     <>

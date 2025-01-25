@@ -1,5 +1,6 @@
 // types/content.ts
 export interface YamlContent {
+  base_structure: string;
   github: string;
   pip: string;
   sphinx: string;

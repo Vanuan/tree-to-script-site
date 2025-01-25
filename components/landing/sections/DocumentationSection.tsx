@@ -3,14 +3,12 @@ import { Card, CardContent } from "@/components/ui/card";
 import { CodeBlock } from "@/components/landing/CodeBlock";
 
 interface DocumentationSectionProps {
-  id?: string;
   title?: string;
   features?: { title: string; description: string }[];
   installationCommand?: string;
 }
 
 export const DocumentationSection = ({
-  id = "docs",
   title = "📦 Documentation",
   features = [
     { title: "Safe by Design", description: "dry-run mode" },
