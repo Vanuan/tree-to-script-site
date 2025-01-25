@@ -2,26 +2,78 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@layer base {
+    :root {
+        /* Remove unused shadcn variables that conflict with your theme */
+        --radius: 0.5rem; /* Only keep this if actually used in components */
+    }
+
+    /* Remove dark mode variables if not implemented */
+    /* .dark { ... } */
+
+    * {
+        @apply border-border; /* Use your theme's border color */
+    }
+
+    body {
+        @apply bg-lightBackground text-darkText; /* Use theme colors directly */
+    }
+
+    h1,
+    h2,
+    h3 {
+        @apply font-heading font-bold; /* Add weight from theme */
+    }
+
+    h1 {
+        @apply text-h1;
+    }
+    h2 {
+        @apply text-h2;
+    }
+    h3 {
+        @apply text-h3;
+    }
+    h1 {
+        @apply font-bold;
+    }
+    h2 {
+        @apply font-semibold;
+    }
+    h3 {
+        @apply font-medium;
+    }
+    p {
+        @apply text-body;
+    }
+
+    code,
+    kbd,
+    samp,
+    pre {
+        font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular,
+            Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+/* Remove component layer if using Tailwind variants */
+@layer components {
+    /* .btn-primary and .btn-secondary are redundant with your Button variants */
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+    /* Custom border radius utilities */
+    .rounded-card {
+        border-radius: var(--radius);
+    }
+
+    /* Custom focus states */
+    .focus-ring {
+        @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
+    }
+
+    /* Custom transitions */
+    .transition-colors-slow {
+        @apply transition-colors duration-slow ease-[cubic-bezier(0.4,0,0.2,1)];
+    }
 }

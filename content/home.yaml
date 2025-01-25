@@ -1,0 +1,80 @@
+base_structure: &base_structure |
+  project/
+    ├── src/
+    │   ├── components/
+    │   └── utils/
+    ├── tests/
+    └── README.md
+
+installationCommand: &installationCommand "pip install tree-to-script"
+
+github: &github "https://github.com/Vanuan/tree-to-script"
+githubIssues: &githubIssues "https://github.com/Vanuan/tree-to-script/pulls"
+pip: &pip "https://pypi.org/project/tree-to-script/"
+sphinx: &sphinx "https://vanuan.github.io/tree-to-script/"
+
+hero:
+  title: "From Text to Directories in One Command"
+  subtitle: "The simplest way to safely materialize AI-generated directory structures"
+  inputCode: *base_structure
+  outputCode: |
+    mkdir -p project/src/components
+    mkdir -p project/src/utils
+    mkdir -p project/tests
+    touch project/README.md
+
+getStarted:
+  combined: true
+  installationCommand: *installationCommand
+  exampleCommand: "echo '{{base_structure}}' | python3 -m tree_to_script.main"
+  title: "Quick Start"
+
+useCases:
+  title: "Common Use Cases"
+  items:
+    - title: "LLM-Powered Scaffolding"
+      code: 'echo "Generate Python pipeline" | llm | tree-to-script'
+      description: "Transform AI suggestions into filesystem structures"
+    - title: "Clipboard-Driven Workflow"
+      code: "pbpaste | tree-to-script --no-dry"
+      description: "Create structures directly from clipboard"
+    - title: "Personal Template Library"
+      code: "tree-to-script --template basic --output my_project"
+      description: "Quickly create standardized project templates"
+
+motivation:
+  title: "Why It's Needed?"
+  features:
+    - title: "Instant Execution"
+      description: "Create complex structures in milliseconds"
+    - title: "Agent-Ready Foundation"
+      description: "Bridges the gap between autonomous systems and traditional file-based environments"
+    - title: "Universal Primitive"
+      description: "Environment-independent core works anywhere where clipboard exists"
+documentation:
+  id: "custom-docs"
+  title: "Getting Started"
+  features:
+    - title: "Cross-platform support"
+      description: "Python 3.10"
+    - title: "Clipboard integration"
+      description: "Accepts input from std"
+    - title: "Template management"
+      description: "Accepts input from .tree files"
+    - title: "Safety First"
+      description: "Dry-run mode enabled by default"
+  installationCommand: "pip install tree-to-script"
+
+footer:
+  brandName: "TreeToScript"
+  tagline: "Redefining directory management"
+  links:
+    - title: "Docs"
+      href: *sphinx
+    - title: "GitHub"
+      href: *github
+    - title: "Contribute"
+      href: *githubIssues
+    - title: "MIT License"
+      href: "/license"
+  license: "MIT License"

@@ -1,12 +1,25 @@
 import type { Metadata } from "next";
+
 import localFont from "next/font/local";
+
+import { Inter, Open_Sans } from 'next/font/google';
+
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-heading',
+  weight: ['400', '500', '600', '700']
 });
+
+const openSans = Open_Sans({
+  subsets: ['latin'],
+  variable: '--font-body',
+  weight: ['400', '500', '700']
+});
+
+
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
@@ -26,7 +39,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${inter.variable} ${openSans.variable} ${geistMono.variable} antialiased font-body`}
       >
         {children}
       </body>
